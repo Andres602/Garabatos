@@ -1,0 +1,130 @@
+#:kivy 1.0.9
+
+<ThemeBox>:
+	hue: .9
+	sat: .6
+	size: 300,50
+	canvas:
+		Color:
+			hsv: self.hue, self.sat, .9
+		Rectangle:
+			pos:self.pos
+			size:self.size
+	tipo: 'caja'
+	Label:	
+		center_x: root.center_x
+		center_y: root.center_y
+		font_size:20
+		text: root.tipo
+
+<Button>:
+	texto: 'boton'
+	pos_x: 30
+	pos_y:30
+	text: root.texto
+	pos_hint:{root.pos_x, root.pos_y}
+	size: 100, 100
+
+<Label>:
+	texto: 'Pictionary'
+	font_size:30
+	center_x:0
+	center_y:0
+	text: root.texto
+
+<Selec>
+	x:0
+	y:0
+	canvas:
+		Color:
+			rgb: 0, 0, 0
+		Ellipse:
+			pos:self.x,self.y
+			size:60,60
+		Color:
+			hsv: .56, .8, .9
+		Ellipse:
+			pos:self.x+5,self.y+5
+			size:50,50
+
+<PictionaryGame>:
+	persona: box1
+	cosa: box2
+	accion: box3
+	dificil: box4
+	todos: box5
+	boton: btn1
+	inicio: btn2
+	fin: btn3
+	word: plb
+	circulo: circ2
+	circulo: circ
+
+
+	ThemeBox:
+		id: box1 
+		size: root.width, root.height/10
+		center_x: root.width/2
+		top:  root.height
+
+	ThemeBox:
+		id: box2
+		size: root.width, root.height/10
+		center_x: root.width/2
+		top: root.height-root.height/10
+
+	ThemeBox:
+		id: box3
+		size: root.width, root.height/10
+		center_x: root.width/2
+		top: root.height-2*root.height/10
+
+	ThemeBox:
+		id: box4
+		size: root.width, root.height/10
+		center_x: root.width/2
+		top: root.height-3*root.height/10
+
+	ThemeBox:
+		id: box5
+		size: root.width, root.height/10
+		center_x: root.width/2
+		top: root.height-4*root.height/10
+
+	Label:
+		id: plb
+		center_x: root.width/2
+		top: root.height-16*root.height/30
+		font_size:50
+
+
+
+	Button:
+		id: btn1
+		size: root.width, root.height/5
+		center_x: root.width/2
+		top: root.height-7*root.height/10
+		on_touch_down:root.random_word()
+
+	Button:
+		id: btn2
+		size: root.width/2, root.height/10
+		center_x: root.width/4
+		top: root.height-9*root.height/10
+		on_release:root.start_time()
+
+	Button:
+		id: btn3
+		size: root.width/2, root.height/10
+		center_x: 3*root.width/4
+		top: root.height-9*root.height/10
+		on_release:root.stop_time()	
+
+
+	Selec:
+		id: circ
+
+	
+		
+
+	
